@@ -1,0 +1,14 @@
+{
+  "name": "MediClinic - Administracion de pacientes",
+  "short_name": "MediClinic",
+  "description": "PWA para registro y busqueda de pacientes de la clinica MediClinic",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    { "src": "/icono-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icono-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
