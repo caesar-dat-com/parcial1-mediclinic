@@ -15,11 +15,35 @@ The app must:
 
 ## Checklist
 
-- [ ] Loader visible mientras "cargan" los datos iniciales
-- [ ] Lista de contactos precargada
-- [ ] Formulario para agregar contacto (nombre + telefono)
-- [ ] Boton/accion para eliminar contacto
-- [ ] App dividida en componentes (no todo en App.jsx)
+- [x] Loader visible mientras "cargan" los datos iniciales
+- [x] Lista de contactos precargada
+- [x] Formulario para agregar contacto (nombre + telefono)
+- [x] Boton/accion para eliminar contacto
+- [x] App dividida en componentes (no todo en App.jsx)
+
+## Como correrlo
+
+```bash
+npm install
+npm run dev
+```
+
+## Estructura
+
+```
+src/
+  App.jsx                    estado de contactos y carga inicial
+  components/
+    Loader.jsx               spinner mientras carga
+    ContactForm.jsx          formulario de nombre + telefono
+    ContactList.jsx          recorre la lista
+    ContactItem.jsx          un contacto y su boton eliminar
+  data/
+    contactos.js             datos precargados
+```
+
+La carga inicial se simula con un `setTimeout` de 1.5s dentro de un `useEffect`,
+para imitar una peticion a un servidor.
 
 ## Notas
 
