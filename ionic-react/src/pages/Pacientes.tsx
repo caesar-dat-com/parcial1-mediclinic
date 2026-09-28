@@ -11,7 +11,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { useState } from 'react';
-import { useClinica } from '../context/Clinica';
+import { useClinica } from '../context/useClinica';
 
 function Pacientes() {
   const { pacientes } = useClinica();

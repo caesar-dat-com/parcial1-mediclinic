@@ -10,15 +10,24 @@ function Pacientes() {
     leer<Paciente[]>(CLAVE_PACIENTES, [])
   );
   const [busqueda, setBusqueda] = useState('');
+  const [editando, setEditando] = useState<Paciente | undefined>();
 
   useEffect(() => {
     guardar(CLAVE_PACIENTES, pacientes);
   }, [pacientes]);
 
-  const agregar = (p: Paciente) => setPacientes([...pacientes, p]);
-  const eliminar = (id: string) =>
-    setPacientes(pacientes.filter((p) => p.id !== id));
-  const existeCC = (cc: string) => pacientes.some((p) => p.cc === cc);
+  const guardarPaciente = (paciente: Paciente) => {
+    setPacientes((anteriores) => editando
+      ? anteriores.map((p) => p.id === paciente.id ? paciente : p)
+      : [...anteriores, paciente]);
+    setEditando(undefined);
+  };
+  const eliminar = (id: string) => {
+    setPacientes((anteriores) => anteriores.filter((p) => p.id !== id));
+    if (editando?.id === id) setEditando(undefined);
+  };
+  const existeCC = (cc: string) =>
+    pacientes.some((p) => p.cc === cc && p.id !== editando?.id);
 
   const termino = busqueda.trim().toLowerCase();
   // al hijo le paso la lista ya filtrada
@@ -33,14 +42,20 @@ function Pacientes() {
 
   return (
     <div className="pacientes">
-      <PacienteForm onAgregar={agregar} existeCC={existeCC} />
+      <PacienteForm
+        key={editando?.id ?? 'nuevo'}
+        paciente={editando}
+        onGuardar={guardarPaciente}
+        existeCC={existeCC}
+        onCancelar={() => setEditando(undefined)}
+      />
 
       <section className="panel">
         <h2>
           Pacientes <span className="badge">{filtrados.length}</span>
         </h2>
         <Buscador texto={busqueda} onBuscar={setBusqueda} />
-        <ListaPacientes pacientes={filtrados} onEliminar={eliminar} />
+        <ListaPacientes pacientes={filtrados} onEliminar={eliminar} onEditar={setEditando} />
       </section>
     </div>
   );

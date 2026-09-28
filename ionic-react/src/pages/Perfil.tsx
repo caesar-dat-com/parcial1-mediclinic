@@ -10,7 +10,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import { useClinica } from '../context/Clinica';
+import { useClinica } from '../context/useClinica';
 
 function Perfil() {
   const { medico, visitas, salir } = useClinica();

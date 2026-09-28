@@ -10,7 +10,7 @@ import {
   IonText,
   IonToast,
 } from '@ionic/react';
-import { useClinica } from '../context/Clinica';
+import { useClinica } from '../context/useClinica';
 import './Login.css';
 
 function Login() {

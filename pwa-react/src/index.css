@@ -129,3 +129,10 @@ main {
 @media (max-width: 620px) {
   .formulario { grid-template-columns: 1fr; }
 }
+
+.acciones { gap: 0.5rem; flex-shrink: 0; }
+.secundario { background: #e0f2fe; color: #075985; }
+button { min-height: 44px; }
+input { font-size: 1rem; min-height: 44px; }
+.item > div:first-child { min-width: 0; overflow-wrap: anywhere; }
+@media (min-width: 620px) { .item .acciones { flex-direction: row; } }

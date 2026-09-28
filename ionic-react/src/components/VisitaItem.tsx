@@ -1,5 +1,5 @@
 import { IonBadge, IonItem, IonLabel, IonNote } from '@ionic/react';
-import { COLOR, ETIQUETA } from '../context/Clinica';
+import { COLOR, ETIQUETA } from '../context/useClinica';
 import type { Visita } from '../types';
 
 interface Props {

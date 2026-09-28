@@ -16,7 +16,8 @@ import Pacientes from './pages/Pacientes';
 import Perfil from './pages/Perfil';
 import VisitaDetalle from './pages/VisitaDetalle';
 import Visitas from './pages/Visitas';
-import { ClinicaProvider, useClinica } from './context/Clinica';
+import { ClinicaProvider } from './context/Clinica';
+import { useClinica } from './context/useClinica';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';

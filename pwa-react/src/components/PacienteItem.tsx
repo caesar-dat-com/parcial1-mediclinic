@@ -3,9 +3,10 @@ import type { Paciente } from '../types';
 interface Props {
   paciente: Paciente;
   onEliminar: (id: string) => void;
+  onEditar: (paciente: Paciente) => void;
 }
 
-function PacienteItem({ paciente, onEliminar }: Props) {
+function PacienteItem({ paciente, onEliminar, onEditar }: Props) {
   return (
     <li className="item">
       <div>
@@ -16,9 +17,14 @@ function PacienteItem({ paciente, onEliminar }: Props) {
           CC {paciente.cc} &middot; Tel {paciente.telefono || 'sin registrar'}
         </span>
       </div>
-      <button className="borrar" onClick={() => onEliminar(paciente.id)}>
-        Eliminar
-      </button>
+      <div className="acciones">
+        <button className="secundario" onClick={() => onEditar(paciente)}>
+          Editar
+        </button>
+        <button className="borrar" onClick={() => onEliminar(paciente.id)}>
+          Eliminar
+        </button>
+      </div>
     </li>
   );
 }

@@ -8,7 +8,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import VisitaItem from '../components/VisitaItem';
-import { useClinica } from '../context/Clinica';
+import { useClinica } from '../context/useClinica';
 
 function Visitas() {
   const { visitas } = useClinica();

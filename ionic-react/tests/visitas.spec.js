@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('sesión, visitas, pacientes y perfil', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Ingresar', exact: true }).click();
+  await expect(page.locator('ion-toast')).toBeVisible();
+  await page.getByPlaceholder('medico@mediclinic.com').fill('medico@mediclinic.com');
+  await page.locator('input[type=password]').fill('123');
+  await page.getByRole('button', { name: 'Ingresar', exact: true }).click();
+  await expect(page.getByText('Visitas del día', { exact: true })).toBeVisible();
+  await page.getByText('Ana Gómez', { exact: true }).click();
+  await expect(page.getByText('Control de presión', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Marcar como En camino', exact: true }).click();
+  await page.getByRole('button', { name: 'Marcar como Finalizada', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Visita finalizada', exact: true })).toBeDisabled();
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Visita finalizada', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Reabrir como pendiente', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Marcar como En camino', exact: true })).toBeVisible();
+  await page.locator('ion-tab-button[tab=pacientes]').click();
+  await page.getByPlaceholder('Nombre, apellido o CC').fill('94123456');
+  const pacientes = page.locator('.ion-page:not(.ion-page-hidden)').filter({ has: page.locator('ion-searchbar') }).last();
+  await expect(pacientes.getByText('Luis Torres', { exact: true })).toBeVisible();
+  await expect(pacientes.locator('ion-item')).toHaveCount(1);
+  await page.locator('ion-tab-button[tab=perfil]').click();
+  await expect(page.getByText('Dra. Laura Mejía', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Cerrar sesión' }).click();
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Ingresar', exact: true })).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem('mediclinic_medico'))).toBeNull();
+});

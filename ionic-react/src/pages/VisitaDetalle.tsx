@@ -14,7 +14,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import { useParams } from 'react-router-dom';
-import { COLOR, ETIQUETA, SIGUIENTE, useClinica } from '../context/Clinica';
+import { COLOR, ETIQUETA, SIGUIENTE, useClinica } from '../context/useClinica';
 
 function VisitaDetalle() {
   const { id } = useParams<{ id: string }>();

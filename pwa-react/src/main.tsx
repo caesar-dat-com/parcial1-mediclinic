@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 );
 
 // registro del service worker (paso 4 de la PWA)
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/service-worker.js')
