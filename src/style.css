@@ -1,0 +1,43 @@
+/* Una sola columna para usarlo cómodo desde el celular. */
+:root {
+  --ion-font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  --ion-color-danger: #b42332;
+  --ion-color-danger-rgb: 180, 35, 50;
+  --ion-color-primary: #246455;
+  --ion-color-primary-rgb: 36, 100, 85;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-shade: #20584b;
+  --ion-color-primary-tint: #3a7466;
+  --ion-background-color: #f6f7f3;
+  --ion-text-color: #22312d;
+  --ion-item-background: #fff;
+  --ion-toolbar-background: #fff;
+  --ion-border-color: #dce3dc;
+}
+.contenido { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; }
+.intro { margin-bottom: 24px; }
+.intro h1 { font-size: 28px; margin: 0 0 8px; letter-spacing: -0.5px; }
+.intro p, .resumen { color: var(--ion-color-medium); line-height: 1.5; }
+ion-list { border-radius: 12px; margin-bottom: 16px; }
+ion-button { min-height: 44px; }
+ion-input { font-size: 16px; }
+ion-checkbox { width: 100%; --size: 24px; --border-color: var(--ion-color-medium); }
+ion-checkbox::part(label) { white-space: normal; overflow-wrap: anywhere; }
+.completa ion-checkbox::part(label) { text-decoration: line-through; opacity: 0.65; }
+.vacio { padding: 32px 16px; text-align: center; }
+.error { display: block; margin: 8px 0; }
+.login { padding-top: 12vh; }
+@media (min-width: 640px) { .contenido { padding-top: 40px; } }
+@media (prefers-color-scheme: dark) {
+  :root { --ion-background-color: #17221e; --ion-text-color: #e5eee8;
+    --ion-item-background: #22302a; --ion-toolbar-background: #22302a;
+    --ion-border-color: #394a41; --ion-color-primary: #8dceb3;
+    --ion-color-primary-contrast: #17221e; --ion-color-medium: #acbab0;
+    --ion-color-danger: #ffaaa6; --ion-color-danger-rgb: 255, 170, 166; }
+}
+[data-theme='dark'] { --ion-background-color: #17221e; --ion-text-color: #e5eee8;
+  --ion-item-background: #22302a; --ion-toolbar-background: #22302a;
+  --ion-border-color: #394a41; --ion-color-primary: #8dceb3;
+  --ion-color-primary-contrast: #17221e; --ion-color-medium: #acbab0;
+    --ion-color-danger: #ffaaa6; --ion-color-danger-rgb: 255, 170, 166; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
