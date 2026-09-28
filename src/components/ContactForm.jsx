@@ -24,12 +24,14 @@ function ContactForm({ onAgregar }) {
       <input
         type="text"
         placeholder="Nombre"
+        aria-label="Nombre"
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
       />
       <input
         type="tel"
         placeholder="Telefono"
+        aria-label="Telefono"
         value={telefono}
         onChange={(e) => setTelefono(e.target.value)}
       />

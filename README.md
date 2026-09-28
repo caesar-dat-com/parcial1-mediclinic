@@ -24,7 +24,7 @@ The app must:
 ## Como correrlo
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -49,3 +49,18 @@ para imitar una peticion a un servidor.
 
 Esta rama corresponde al Challenge 1 del Corte 1, registrado en la planilla del curso
 como "Repaso React".
+
+## Comprobar la entrega
+
+Con Node 22.12 o superior:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run build
+npm test
+```
+
+La prueba revisa la carga inicial, el formulario vacío, agregar un contacto y
+eliminar todos hasta dejar la lista vacía. Los contactos vuelven a los datos
+iniciales al recargar; este reto no pide guardar la lista.
