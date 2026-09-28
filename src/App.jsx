@@ -21,12 +21,12 @@ function App() {
   }, []);
 
   function agregarContacto(nombre, telefono) {
-    const nuevo = { id: Date.now(), nombre, telefono };
-    setContactos([...contactos, nuevo]);
+    const nuevo = { id: crypto.randomUUID(), nombre, telefono };
+    setContactos((anteriores) => [...anteriores, nuevo]);
   }
 
   function eliminarContacto(id) {
-    setContactos(contactos.filter((c) => c.id !== id));
+    setContactos((anteriores) => anteriores.filter((c) => c.id !== id));
   }
 
   return (

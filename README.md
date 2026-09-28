@@ -27,7 +27,7 @@ Based on the React app from the Challenge 01:
 
 - Imagen de portada en `App.jsx`, que es el componente padre.
 - `public/manifest.json` con nombre, colores e iconos.
-- `public/sw.js`, el service worker escrito a mano.
+- `scripts/sw.js`, la base del service worker. El build genera `dist/sw.js`.
 - Iconos propios generados con `scripts/generar-imagenes.py`.
 
 ## Estrategia hibrida
@@ -37,7 +37,7 @@ El service worker no usa una sola tecnica para todo, elige segun lo que se pide:
 - **Abrir la app (navegacion)** - network first. Asi siempre se ve la version
   mas nueva, y si no hay internet responde el cache.
 - **JS, CSS e imagenes** - cache first. Vite les pone un hash en el nombre,
-  no cambian, conviene servirlos de una.
+  no cambian entre peticiones, así que se usa la copia guardada.
 - **Otros dominios** - se dejan pasar. No tiene sentido guardar lo que no es mio.
 
 Eso es lo "hibrido": network first para el HTML y cache first para los archivos.
@@ -45,7 +45,7 @@ Eso es lo "hibrido": network first para el HTML y cache first para los archivos.
 ## Como correrlo
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -76,8 +76,27 @@ A veces Chrome muestra solo una barra abajo que dice "Instalar"; con tocarla bas
 3. Bajar y elegir **Agregar a inicio**.
 4. Tocar **Agregar**.
 
-Una vez instalada abre sin internet, porque el service worker ya guardo lo necesario.
+Después de la primera carga completa, abre sin internet. El build prepara una
+lista con el HTML, JavaScript, CSS e imágenes y el service worker guarda todos
+esos archivos durante su instalación. La caché cambia de versión al cambiar
+el contenido de la app.
 
 ## Notas
 
 Parte del Challenge 01, no es un proyecto nuevo. En la planilla del curso figura como "PWA".
+
+## Pruebas
+
+Con Node 22.12 o superior:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run build
+npm test
+```
+
+Se prueban los contactos y la apertura sin conexión desde un navegador limpio,
+sin depender de una segunda visita con internet. `scripts/preparar-pwa.mjs`
+recorre los archivos de `dist` para que la lista offline incluya los nombres
+que Vite genera en cada compilación.
