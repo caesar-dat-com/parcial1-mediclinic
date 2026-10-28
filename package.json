@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test.e2e": "playwright test",
+    "capturas": "playwright test tests/capturas.spec.js"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/network": "^8.0.0",
+    "@ionic/react": "^9.0.0",
+    "@ionic/react-router": "^9.0.0",
+    "dexie": "^4.4.0",
+    "dexie-react-hooks": "^4.4.0",
+    "firebase": "^13.1.0",
+    "ionicons": "^8.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router": "^6.30.0",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0"
+  },
+  "name": "challenge-06-storage",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
