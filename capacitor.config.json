@@ -1,0 +1,14 @@
+{
+  "appId": "co.edu.uao.challenge07",
+  "appName": "Challenge 07 Sensors",
+  "webDir": "dist",
+  "plugins": {
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#246455"
+    }
+  }
+}

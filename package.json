@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test.e2e": "playwright test",
+    "capturas": "playwright test tests/capturas.spec.js"
+  },
+  "dependencies": {
+    "@capacitor/camera": "^8.2.6",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/device": "^8.0.3",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/geolocation": "^8.2.4",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/motion": "^8.0.1",
+    "@capacitor/push-notifications": "^8.1.3",
+    "@ionic/react": "^9.0.0",
+    "@ionic/react-router": "^9.0.0",
+    "ionicons": "^8.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-router": "^6.30.0",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.3.0",
+    "@playwright/test": "1.63.0"
+  },
+  "name": "challenge-07-sensors",
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

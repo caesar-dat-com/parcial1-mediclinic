@@ -1,0 +1,118 @@
+:root {
+  --ion-color-primary: #246455;
+  --ion-color-primary-rgb: 36, 100, 85;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #1f584b;
+  --ion-color-primary-tint: #3a7466;
+}
+
+.contenido {
+  padding: 16px 16px 48px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.intro h1 {
+  font-size: 1.45rem;
+  margin: 0 0 6px;
+}
+
+.intro p {
+  margin: 0 0 6px;
+  color: #4a4a4a;
+  line-height: 1.4;
+}
+
+.plugin code {
+  background: #eef3f1;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.rejilla {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 10px;
+}
+
+.boton-sensor {
+  --border-radius: 12px;
+  text-align: left;
+}
+
+.soporte {
+  margin: 14px 0;
+  padding: 12px;
+  border: 1px solid #dde5e2;
+  border-radius: 12px;
+  background: #f7faf9;
+}
+
+.detalle-soporte {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+}
+
+.nota-soporte {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: #4a4a4a;
+  line-height: 1.35;
+}
+
+.acciones {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.datos {
+  margin-bottom: 8px;
+}
+
+.historial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.error {
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+.aviso {
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+.vacio {
+  display: block;
+  font-size: 0.85rem;
+  margin: 10px 0;
+  line-height: 1.35;
+}
+
+.foto {
+  width: 100%;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.contenido-archivo {
+  background: #f1f4f3;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
